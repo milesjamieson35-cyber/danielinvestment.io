@@ -3,533 +3,685 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retirement Planning – Greenfield Wealth</title>
+<title>Wealth Management – Modern UI Mockup</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green-deep:  #1a4a2e;
-    --green-mid:   #2d6a4f;
-    --green-light: #52b788;
-    --green-pale:  #d8f3dc;
-    --green-soft:  #f0faf2;
-    --white:       #ffffff;
-    --off-white:   #f8fcf9;
-    --gray:        #6b7280;
-    --gray-light:  #e5e7eb;
-    --text-dark:   #111827;
+    --green-deep:   #1a4a2e;
+    --green-mid:    #2d6a4f;
+    --green-light:  #52b788;
+    --green-pale:   #d8f3dc;
+    --green-soft:   #f0faf2;
+    --white:        #ffffff;
+    --off-white:    #f8fcf9;
+    --gray:         #6b7280;
+    --gray-light:   #e5e7eb;
+    --text-dark:    #111827;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text-dark); overflow-x: hidden; }
 
-  /* NAV */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: var(--white); border-bottom: 1px solid var(--gray-light);
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 68px;
+    padding: 0 48px;
+    height: 68px;
     box-shadow: 0 1px 8px rgba(0,0,0,0.04);
   }
-  .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--green-deep); letter-spacing: 0.03em; }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    letter-spacing: 0.03em;
+  }
   .logo span { color: var(--green-light); }
   .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { text-decoration: none; font-size: 0.875rem; font-weight: 500; color: var(--gray); transition: color .2s; letter-spacing: 0.02em; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray);
+    transition: color .2s;
+    letter-spacing: 0.02em;
+  }
   .nav-links a:hover, .nav-links a.active { color: var(--green-deep); }
-  .nav-cta { background: var(--green-deep); color: var(--white) !important; padding: 9px 22px; border-radius: 6px; font-weight: 500 !important; }
-  .nav-cta:hover { background: var(--green-mid) !important; }
-
-  /* BREADCRUMB */
-  .breadcrumb { background: var(--white); border-bottom: 1px solid var(--gray-light); padding: 12px 48px; }
-  .breadcrumb-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--gray); }
-  .breadcrumb a { color: var(--green-mid); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-
-  /* PAGE HERO — two column */
-  .page-hero {
-    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
-    padding: 80px 48px 72px; position: relative; overflow: hidden;
+  .nav-cta {
+    background: var(--green-deep);
+    color: var(--white) !important;
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    transition: background .2s !important;
   }
-  .page-hero::before {
-    content: ''; position: absolute; top: -80px; right: -80px;
-    width: 480px; height: 480px; background: rgba(255,255,255,0.04); border-radius: 50%;
-  }
-  .page-hero::after {
-    content: ''; position: absolute; bottom: -100px; right: 200px;
-    width: 260px; height: 260px; background: rgba(255,255,255,0.03); border-radius: 50%;
-  }
-  .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center; position: relative; z-index: 1; }
-  .hero-eyebrow {
-    display: inline-block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em;
-    text-transform: uppercase; background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);
-    padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
-  }
-  .hero-left h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 300; color: var(--white); line-height: 1.12; margin-bottom: 18px; }
-  .hero-left h1 em { font-style: italic; font-weight: 600; color: #a8e6be; }
-  .hero-left p { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.78); max-width: 520px; margin-bottom: 32px; }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-white { background: var(--white); color: var(--green-deep); padding: 13px 28px; border-radius: 7px; font-weight: 500; font-size: 0.9rem; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: transform .15s, box-shadow .15s; display: inline-block; }
-  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-  .btn-ghost { border: 1.5px solid rgba(255,255,255,0.45); color: var(--white); padding: 13px 28px; border-radius: 7px; font-size: 0.9rem; text-decoration: none; transition: background .15s; display: inline-block; }
-  .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+  .nav-cta:hover { background: var(--green-mid) !important; color: var(--white) !important; }
 
-  /* HERO STAT CARD */
-  .hero-stat-card {
-    background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.18); border-radius: 16px;
-    padding: 32px 28px; color: var(--white);
-  }
-  .hero-stat-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; color: rgba(255,255,255,0.7); margin-bottom: 20px; letter-spacing: 0.04em; }
-  .stat-row { display: flex; flex-direction: column; gap: 16px; }
-  .stat-item { display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .stat-label-sm { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
-  .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #a8e6be; }
-
-  /* LAYOUT */
-  .page-body { max-width: 1200px; margin: 0 auto; padding: 72px 48px; display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; }
-  .main-content { min-width: 0; }
-  .sidebar { position: sticky; top: 88px; }
-
-  /* SECTION TAGS & HEADERS */
-  .section-tag { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); font-weight: 500; margin-bottom: 10px; display: block; }
-  h2.content-h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--green-deep); line-height: 1.2; margin-bottom: 16px; }
-  .lead { font-size: 1rem; line-height: 1.8; color: var(--gray); margin-bottom: 36px; }
-
-  /* WHAT WE HELP WITH */
-  .help-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 56px; }
-  .help-card {
-    background: var(--white); border-radius: 12px; border: 1px solid var(--gray-light);
-    padding: 24px 22px; transition: transform .2s, box-shadow .2s, border-color .2s;
-    cursor: default;
-  }
-  .help-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(45,106,79,0.09); border-color: var(--green-pale); }
-  .help-icon { font-size: 1.5rem; margin-bottom: 12px; }
-  .help-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--green-deep); margin-bottom: 7px; }
-  .help-card p { font-size: 0.825rem; color: var(--gray); line-height: 1.65; }
-
-  /* APPROACH STEPS */
-  .approach-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 56px; }
-  .approach-step {
-    display: grid; grid-template-columns: 56px 1fr; gap: 20px;
-    padding: 28px 0; border-bottom: 1px solid var(--gray-light);
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+    color: var(--white);
+    padding: 100px 48px 80px;
     position: relative;
+    overflow: hidden;
   }
-  .approach-step:last-child { border-bottom: none; }
-  .step-circle {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--green-soft); border: 2px solid var(--green-pale);
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -120px; right: 200px;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+  .hero-inner { max-width: 700px; position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.9);
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em { font-style: italic; font-weight: 600; color: #a8e6be; }
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--white);
+    color: var(--green-deep);
+    padding: 13px 28px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.5);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 7px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  .stat-item {
+    padding: 28px 56px;
+    text-align: center;
+    border-right: 1px solid var(--gray-light);
+    flex: 1;
+    max-width: 220px;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
+  .section-header { margin-bottom: 48px; }
+  .section-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    color: var(--green-deep);
+    line-height: 1.2;
+  }
+  .section-header p {
+    margin-top: 12px;
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  /* ── SERVICE CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 36px 32px;
+    border: 1px solid var(--gray-light);
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green-mid), var(--green-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(45,106,79,0.12); border-color: var(--green-pale); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .card-icon {
+    width: 48px; height: 48px;
+    background: var(--green-soft);
+    border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600;
-    color: var(--green-mid); flex-shrink: 0; margin-top: 2px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
   }
-  .approach-step h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--green-deep); margin-bottom: 7px; }
-  .approach-step p { font-size: 0.858rem; color: var(--gray); line-height: 1.7; }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 10px;
+  }
+  .service-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 20px;
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--green-mid);
+    text-decoration: none;
+    transition: gap .15s;
+  }
+  .card-link:hover { gap: 10px; }
 
-  /* WHO WE SERVE */
-  .who-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 56px; }
-  .who-card {
-    background: var(--white); border-radius: 12px; border: 1px solid var(--gray-light);
-    padding: 22px 18px; text-align: center;
-    transition: border-color .2s, box-shadow .2s;
+  /* ── TEAM CARDS ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
   }
-  .who-card:hover { border-color: var(--green-pale); box-shadow: 0 8px 24px rgba(45,106,79,0.08); }
-  .who-icon { font-size: 1.8rem; margin-bottom: 10px; }
-  .who-card h5 { font-family: 'Cormorant Garamond', serif; font-size: 0.98rem; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
-  .who-card p { font-size: 0.78rem; color: var(--gray); line-height: 1.6; }
-
-  /* FAQ */
-  .faq-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 56px; }
-  .faq-item { border-bottom: 1px solid var(--gray-light); }
-  .faq-q {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 0; cursor: pointer; gap: 16px;
+  .team-card {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--gray-light);
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
   }
-  .faq-q span { font-size: 0.93rem; font-weight: 500; color: var(--text-dark); line-height: 1.4; }
-  .faq-toggle {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--green-soft); border: 1px solid var(--green-pale);
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(45,106,79,0.12); }
+  .team-avatar {
+    width: 100%;
+    height: 200px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; color: var(--green-mid); flex-shrink: 0;
-    transition: background .15s, transform .2s;
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--white);
+    letter-spacing: 0.05em;
   }
-  .faq-item.open .faq-toggle { background: var(--green-deep); color: var(--white); transform: rotate(45deg); }
-  .faq-a { display: none; padding: 0 0 20px; font-size: 0.858rem; color: var(--gray); line-height: 1.75; }
-  .faq-item.open .faq-a { display: block; }
-
-  /* RELATED SERVICES */
-  .related-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-  .related-card {
-    background: var(--white); border-radius: 12px; border: 1px solid var(--gray-light);
-    padding: 22px 20px; transition: transform .2s, box-shadow .2s; cursor: pointer;
+  .team-card:nth-child(1) .team-avatar { background: linear-gradient(135deg, #1a4a2e, #2d6a4f); }
+  .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, #2d6a4f, #52b788); }
+  .team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, #1a4a2e, #40916c); }
+  .team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, #40916c, #74c69d); }
+  .team-info { padding: 22px 24px 24px; }
+  .team-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 4px;
   }
-  .related-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(45,106,79,0.09); border-color: var(--green-pale); }
-  .related-icon { font-size: 1.3rem; margin-bottom: 10px; }
-  .related-card h5 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
-  .related-card p { font-size: 0.78rem; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
-  .related-link { font-size: 0.78rem; font-weight: 500; color: var(--green-mid); text-decoration: none; }
-
-  /* SIDEBAR CARDS */
-  .sidebar-card {
-    background: var(--white); border-radius: 14px; border: 1px solid var(--gray-light);
-    padding: 28px 24px; margin-bottom: 18px;
+  .team-role {
+    font-size: 0.78rem;
+    color: var(--green-light);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
   }
-  .sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--green-deep); margin-bottom: 10px; }
-  .sidebar-card p { font-size: 0.835rem; color: var(--gray); line-height: 1.7; margin-bottom: 18px; }
-  .sidebar-btn {
-    display: block; text-align: center; text-decoration: none;
-    background: var(--green-deep); color: var(--white);
-    padding: 12px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 500;
-    transition: background .2s; width: 100%;
+  .team-info p {
+    font-size: 0.83rem;
+    color: var(--gray);
+    line-height: 1.6;
   }
-  .sidebar-btn:hover { background: var(--green-mid); }
-  .sidebar-btn.outline {
-    background: transparent; color: var(--green-mid);
-    border: 1.5px solid var(--green-light); margin-top: 10px;
-  }
-  .sidebar-btn.outline:hover { background: var(--green-soft); }
-
-  /* ADVISOR MINI CARD */
-  .advisor-mini { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-  .advisor-mini-avatar {
-    width: 52px; height: 52px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+  .team-socials { display: flex; gap: 8px; margin-top: 14px; }
+  .social-dot {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--green-soft);
+    border: 1px solid var(--green-pale);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--white);
+    font-size: 0.65rem;
+    color: var(--green-mid);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .social-dot:hover { background: var(--green-pale); }
+
+  /* ── CONTACT SECTION ── */
+  .contact-wrapper {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--gray-light);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+  }
+  .contact-left {
+    background: linear-gradient(160deg, var(--green-deep), var(--green-mid));
+    padding: 56px 48px;
+    color: var(--white);
+  }
+  .contact-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .contact-left p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+  }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 22px;
+  }
+  .contact-detail-icon {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
     flex-shrink: 0;
+    margin-top: 1px;
   }
-  .advisor-mini-info strong { display: block; font-size: 0.875rem; color: var(--text-dark); font-weight: 500; }
-  .advisor-mini-info span { font-size: 0.78rem; color: var(--green-light); }
-
-  /* CHECKLIST */
-  .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
-  .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.835rem; color: var(--gray); line-height: 1.5; }
-  .checkmark { width: 18px; height: 18px; border-radius: 50%; background: var(--green-soft); border: 1px solid var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: var(--green-mid); flex-shrink: 0; margin-top: 1px; }
-
-  /* TESTIMONIAL */
-  .testimonial-card {
-    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
-    border-radius: 14px; padding: 28px 24px; color: var(--white);
+  .contact-detail-text strong {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 3px;
+    font-weight: 400;
   }
-  .testimonial-card blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; font-style: italic; line-height: 1.6; color: rgba(255,255,255,0.9); margin-bottom: 16px; }
-  .testimonial-author { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
-  .testimonial-author strong { color: rgba(255,255,255,0.9); display: block; margin-bottom: 2px; }
-  .stars { color: #a8e6be; font-size: 0.7rem; margin-bottom: 14px; letter-spacing: 2px; }
+  .contact-detail-text span {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+  }
+  .contact-right { padding: 56px 48px; }
+  .contact-right h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--green-deep);
+    margin-bottom: 28px;
+    font-weight: 600;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--green-deep);
+    letter-spacing: 0.04em;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    border: 1.5px solid var(--gray-light);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-dark);
+    background: var(--off-white);
+    transition: border-color .15s, background .15s;
+    outline: none;
+    resize: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--green-light);
+    background: var(--white);
+  }
+  .form-submit {
+    width: 100%;
+    background: var(--green-deep);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .2s;
+    margin-top: 4px;
+  }
+  .form-submit:hover { background: var(--green-mid); }
 
-  /* FOOTER */
-  footer { background: var(--green-deep); color: rgba(255,255,255,0.6); text-align: center; padding: 28px 48px; font-size: 0.8rem; }
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 32px 48px;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
   footer span { color: var(--green-light); }
 
-  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-  .hero-inner > * { animation: fadeUp .55s ease both; }
-  .hero-inner > *:nth-child(1) { animation-delay:.05s; }
-  .hero-inner > *:nth-child(2) { animation-delay:.2s; }
-
-  @media (max-width: 1024px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-stat-card { display: none; }
-    .page-body { grid-template-columns: 1fr; }
-    .sidebar { position: static; }
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
+  .hero-inner > * {
+    animation: fadeUp .6s ease both;
+  }
+  .hero-inner > *:nth-child(1) { animation-delay: .05s; }
+  .hero-inner > *:nth-child(2) { animation-delay: .15s; }
+  .hero-inner > *:nth-child(3) { animation-delay: .25s; }
+  .hero-inner > *:nth-child(4) { animation-delay: .35s; }
+
   @media (max-width: 768px) {
-    nav { padding: 0 20px; } .nav-links { display: none; }
-    .page-hero, .page-body { padding-left: 24px; padding-right: 24px; }
-    .help-grid, .who-grid, .related-grid { grid-template-columns: 1fr; }
-    .breadcrumb { padding: 12px 24px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 24px 56px; }
+    .section { padding: 56px 24px; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .stat-item { padding: 20px 28px; max-width: none; }
+    .stats-bar { flex-wrap: wrap; }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="logo">Greenfield <span>Wealth</span></div>
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#" class="active">Services</a></li>
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">Services</a></li>
     <li><a href="#">Our Team</a></li>
     <li><a href="#">Insights</a></li>
     <li><a href="#" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
 
-<div class="breadcrumb">
-  <div class="breadcrumb-inner">
-    <a href="#">Home</a> <span>›</span>
-    <a href="#">Services</a> <span>›</span>
-    <span>Retirement Planning</span>
-  </div>
-</div>
-
 <!-- HERO -->
-<section class="page-hero">
+<section class="hero">
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-eyebrow">🏖️ Retirement Planning</div>
-      <h1>Retire with confidence,<br>not <em>just a number</em></h1>
-      <p>We help you build a retirement income strategy that lasts as long as you do — accounting for taxes, healthcare, market risk, and everything life might bring after your last paycheck.</p>
-      <div class="hero-btns">
-        <a href="#" class="btn-white">Schedule a Free Consultation</a>
-        <a href="#" class="btn-ghost">Download Retirement Guide</a>
-      </div>
-    </div>
-    <div class="hero-stat-card">
-      <h4>Average client outcomes</h4>
-      <div class="stat-row">
-        <div class="stat-item">
-          <span class="stat-label-sm">Avg. retirement age achieved</span>
-          <span class="stat-val">61</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label-sm">Income replacement rate</span>
-          <span class="stat-val">94%</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label-sm">Tax saved in yr 1 of retirement</span>
-          <span class="stat-val">$18K+</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label-sm">Clients who retire on schedule</span>
-          <span class="stat-val">89%</span>
-        </div>
-      </div>
+    <div class="hero-eyebrow">Trusted Wealth Management</div>
+    <h1>Grow & protect<br>what <em>matters most</em></h1>
+    <p>We help individuals, families, and businesses build lasting financial confidence through personalized strategies and transparent guidance.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Schedule a Consultation</a>
+      <a href="#" class="btn-outline">Explore Our Services</a>
     </div>
   </div>
 </section>
 
-<!-- MAIN BODY -->
-<div style="background: var(--off-white);">
-<div class="page-body">
-
-  <!-- MAIN CONTENT -->
-  <div class="main-content">
-
-    <!-- WHAT WE HELP WITH -->
-    <span class="section-tag">What We Cover</span>
-    <h2 class="content-h2">Everything retirement, in one place</h2>
-    <p class="lead">Retirement planning is more than picking a savings rate. We coordinate every moving part — from when to claim Social Security to how to draw down your accounts in the most tax-efficient order.</p>
-
-    <div class="help-grid">
-      <div class="help-card">
-        <div class="help-icon">📅</div>
-        <h4>Retirement Date Planning</h4>
-        <p>We model multiple retirement scenarios so you can see exactly when you can stop working — and what that looks like financially, month by month.</p>
-      </div>
-      <div class="help-card">
-        <div class="help-icon">💰</div>
-        <h4>Income Sequencing</h4>
-        <p>We build a withdrawal strategy across your 401(k), IRA, Roth, and taxable accounts to minimize taxes and maximize how long your money lasts.</p>
-      </div>
-      <div class="help-card">
-        <div class="help-icon">🏛️</div>
-        <h4>Social Security Optimization</h4>
-        <p>Claiming at the wrong time can cost you tens of thousands of dollars. We analyze the optimal age for you and your spouse to maximize lifetime benefits.</p>
-      </div>
-      <div class="help-card">
-        <div class="help-icon">🏥</div>
-        <h4>Healthcare & Medicare Planning</h4>
-        <p>We help you navigate the Medicare enrollment window, supplement coverage options, and plan for the #1 retirement expense most people underestimate.</p>
-      </div>
-      <div class="help-card">
-        <div class="help-icon">🔄</div>
-        <h4>Roth Conversion Strategy</h4>
-        <p>Converting pre-tax dollars strategically before RMDs kick in can dramatically reduce your lifetime tax burden and increase legacy wealth.</p>
-      </div>
-      <div class="help-card">
-        <div class="help-icon">🛡️</div>
-        <h4>Longevity & Inflation Risk</h4>
-        <p>A 30-year retirement is not uncommon. We stress-test your plan against inflation, market downturns, and longer-than-expected lifespans.</p>
-      </div>
-    </div>
-
-    <!-- OUR APPROACH -->
-    <span class="section-tag">Our Approach</span>
-    <h2 class="content-h2">How we build your retirement plan</h2>
-    <p class="lead">We don't use a generic template. Every retirement plan starts with a deep understanding of your life — your goals, your concerns, and what retirement actually means to you.</p>
-
-    <div class="approach-steps">
-      <div class="approach-step">
-        <div class="step-circle">1</div>
-        <div>
-          <h4>Discovery & Goal Setting</h4>
-          <p>We start with a conversation — not a spreadsheet. We want to understand what your ideal retirement looks like: where you'll live, what you'll do, and what keeps you up at night. From there we define the financial targets that make that life possible.</p>
-        </div>
-      </div>
-      <div class="approach-step">
-        <div class="step-circle">2</div>
-        <div>
-          <h4>Retirement Income Modeling</h4>
-          <p>We build a detailed cash flow model projecting your income sources, expenses, and portfolio through age 95. You'll see exactly how your plan performs in bull markets, bear markets, and every scenario in between.</p>
-        </div>
-      </div>
-      <div class="approach-step">
-        <div class="step-circle">3</div>
-        <div>
-          <h4>Tax & Withdrawal Optimization</h4>
-          <p>We map out the most tax-efficient sequence to draw from your accounts each year, coordinate Roth conversions, and structure required minimum distributions to minimize your lifetime tax bill.</p>
-        </div>
-      </div>
-      <div class="approach-step">
-        <div class="step-circle">4</div>
-        <div>
-          <h4>Risk & Protection Review</h4>
-          <p>We assess your exposure to longevity risk, sequence-of-returns risk, and healthcare costs — then recommend appropriate safeguards including insurance, annuities (when warranted), and reserve strategies.</p>
-        </div>
-      </div>
-      <div class="approach-step">
-        <div class="step-circle">5</div>
-        <div>
-          <h4>Ongoing Annual Reviews</h4>
-          <p>Your retirement plan is a living document. We review it with you every year — adjusting for tax law changes, market performance, and any life events that shift your priorities or timeline.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- WHO WE SERVE -->
-    <span class="section-tag">Who We Work With</span>
-    <h2 class="content-h2">Is this right for you?</h2>
-    <p class="lead" style="margin-bottom:24px;">We work with clients at every stage of the retirement journey — from those starting to plan in their 40s to those well into a fulfilling retirement.</p>
-    <div class="who-grid">
-      <div class="who-card">
-        <div class="who-icon">🗓️</div>
-        <h5>10+ Years Out</h5>
-        <p>Still working, but serious about planning. We help you maximize savings, reduce taxes, and set a clear path to the finish line.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-icon">⏳</div>
-        <h5>Within 5 Years</h5>
-        <p>Approaching the transition. We fine-tune your income plan, run retirement readiness analysis, and prepare for the shift from saving to spending.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-icon">🌅</div>
-        <h5>Already Retired</h5>
-        <p>In retirement and want a second opinion or ongoing guidance. We audit your current plan and identify gaps in distribution strategy.</p>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <span class="section-tag" style="margin-top:56px; display:block;">Common Questions</span>
-    <h2 class="content-h2">Frequently asked questions</h2>
-    <p class="lead">Questions we hear from nearly every client — answered clearly.</p>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>How much do I need to retire comfortably?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">The traditional "25x your annual expenses" rule is a useful starting point, but the real answer depends on your specific retirement age, lifestyle, healthcare needs, and income sources like Social Security or a pension. We build personalized cash flow models for every client rather than relying on generic benchmarks.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>When should I claim Social Security?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">This is one of the most consequential decisions in retirement — and it depends on your health, other income sources, marital status, and tax situation. Claiming at 62 vs. 70 can mean a difference of 76% in your monthly benefit. We run a full Social Security analysis for every retirement planning client.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>What's the best order to withdraw from my accounts?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">Generally, it makes sense to draw from taxable accounts first, then tax-deferred accounts (like a traditional IRA or 401k), and let Roth accounts grow tax-free for as long as possible. But this varies significantly based on your tax bracket, RMD timeline, and estate goals — which is why a personalized strategy matters so much.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>What if the market drops right when I retire?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">This is called sequence-of-returns risk — and it's one of the biggest threats to a retirement plan. We address it through cash reserve strategies, flexible withdrawal rates, and portfolio construction designed to weather early-retirement downturns without permanently damaging your income stream.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Do I need long-term care insurance?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">It depends on your assets, family situation, and risk tolerance. Long-term care costs can easily exceed $100,000 per year — and Medicare doesn't cover most of it. We evaluate whether insurance makes financial sense for you or whether self-insuring through a dedicated reserve is more appropriate.</div>
-      </div>
-    </div>
-
-    <!-- RELATED SERVICES -->
-    <span class="section-tag">Related Services</span>
-    <h2 class="content-h2">Often paired together</h2>
-    <div class="related-grid">
-      <div class="related-card">
-        <div class="related-icon">💡</div>
-        <h5>Tax Strategy</h5>
-        <p>Coordinate your retirement withdrawals with proactive tax planning to keep more of what you've saved.</p>
-        <a href="#" class="related-link">Learn more →</a>
-      </div>
-      <div class="related-card">
-        <div class="related-icon">📋</div>
-        <h5>Estate Planning</h5>
-        <p>Ensure your retirement assets pass to the right people in the most tax-efficient way possible.</p>
-        <a href="#" class="related-link">Learn more →</a>
-      </div>
-      <div class="related-card">
-        <div class="related-icon">🔒</div>
-        <h5>Risk & Insurance</h5>
-        <p>Protect your retirement income from healthcare costs, disability, and other unexpected disruptions.</p>
-        <a href="#" class="related-link">Learn more →</a>
-      </div>
-    </div>
-
-  </div><!-- end main content -->
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-
-    <div class="sidebar-card">
-      <h4>Talk to a Retirement Specialist</h4>
-      <div class="advisor-mini">
-        <div class="advisor-mini-avatar">DK</div>
-        <div class="advisor-mini-info">
-          <strong>David Kim, CFP®</strong>
-          <span>Retirement Specialist</span>
-        </div>
-      </div>
-      <p>Schedule a complimentary 30-minute call with David to discuss your retirement timeline and income strategy.</p>
-      <a href="#" class="sidebar-btn">Book a Free Consultation</a>
-      <a href="#" class="sidebar-btn outline">Send a Message</a>
-    </div>
-
-    <div class="sidebar-card">
-      <h4>Your retirement readiness checklist</h4>
-      <ul class="checklist">
-        <li><div class="checkmark">✓</div>Defined retirement income target</li>
-        <li><div class="checkmark">✓</div>Social Security timing analyzed</li>
-        <li><div class="checkmark">✓</div>Medicare enrollment plan in place</li>
-        <li><div class="checkmark">✓</div>Withdrawal sequence mapped out</li>
-        <li><div class="checkmark">✓</div>Roth conversion strategy reviewed</li>
-        <li><div class="checkmark">✓</div>Longevity stress test completed</li>
-        <li><div class="checkmark">✓</div>Long-term care needs assessed</li>
-      </ul>
-      <a href="#" class="sidebar-btn outline">Download Full Checklist</a>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <blockquote>"David walked us through every scenario we were afraid to ask about. We retired two years earlier than we thought possible."</blockquote>
-      <div class="testimonial-author">
-        <strong>Robert & Patricia H.</strong>
-        Greenfield clients since 2018
-      </div>
-    </div>
-
-  </aside>
-
-</div><!-- end page-body -->
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">$2.4B+</span><span class="stat-label">Assets Under Management</span></div>
+  <div class="stat-item"><span class="stat-num">1,200+</span><span class="stat-label">Clients Served</span></div>
+  <div class="stat-item"><span class="stat-num">28 yrs</span><span class="stat-label">Combined Experience</span></div>
+  <div class="stat-item"><span class="stat-num">97%</span><span class="stat-label">Client Retention Rate</span></div>
 </div>
 
-<footer>
-  © 2026 <span>Greenfield Wealth</span>. All rights reserved. &nbsp;·&nbsp; Securities offered through [Broker-Dealer]. &nbsp;·&nbsp;
-  <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a>
-</footer>
+<!-- SERVICES -->
+<div style="background: var(--off-white);">
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">What We Offer</span>
+    <h2>Services tailored<br>to your goals</h2>
+    <p>From retirement planning to tax-efficient investing, every service is built around your unique financial picture.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="service-card">
+      <div class="card-icon">💼</div>
+      <h3>Wealth Planning</h3>
+      <p>Comprehensive financial plans that align your short-term decisions with your long-term aspirations and legacy goals.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="card-icon">📈</div>
+      <h3>Investment Management</h3>
+      <p>Actively managed portfolios built around your risk tolerance, time horizon, and values — reviewed regularly with you.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="card-icon">🏡</div>
+      <h3>Retirement Planning</h3>
+      <p>Strategies to ensure you have the income, flexibility, and security you need throughout every stage of retirement.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="card-icon">📋</div>
+      <h3>Estate Planning</h3>
+      <p>Protect and transfer your wealth to the next generation with thoughtful estate and trust planning strategies.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="card-icon">🔒</div>
+      <h3>Risk & Insurance</h3>
+      <p>Identify gaps in your coverage and protect your family, business, and assets from unexpected financial disruptions.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="card-icon">💡</div>
+      <h3>Tax Strategy</h3>
+      <p>Proactive tax planning coordinated with your investment strategy to minimize liabilities and maximize after-tax growth.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+  </div>
+</div>
+</div>
 
-<script>
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    item.classList.toggle('open');
-  }
-</script>
+<!-- TEAM -->
+<div style="background: var(--white); border-top: 1px solid var(--gray-light);">
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Our Team</span>
+    <h2>Advisors who put<br>your interests first</h2>
+    <p>Experienced, credentialed, and deeply committed to your financial wellbeing.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">JM</div>
+      <div class="team-info">
+        <h3>James Mitchell</h3>
+        <div class="team-role">CFP® – Managing Partner</div>
+        <p>20+ years guiding families through market cycles and major life transitions.</p>
+        <div class="team-socials">
+          <div class="social-dot">in</div>
+          <div class="social-dot">✉</div>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">SR</div>
+      <div class="team-info">
+        <h3>Sarah Reynolds</h3>
+        <div class="team-role">CFA® – Investment Director</div>
+        <p>Portfolio construction specialist with expertise in alternative investments.</p>
+        <div class="team-socials">
+          <div class="social-dot">in</div>
+          <div class="social-dot">✉</div>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">DK</div>
+      <div class="team-info">
+        <h3>David Kim</h3>
+        <div class="team-role">CFP® – Retirement Specialist</div>
+        <p>Dedicated to building income strategies that sustain clients through decades of retirement.</p>
+        <div class="team-socials">
+          <div class="social-dot">in</div>
+          <div class="social-dot">✉</div>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">LT</div>
+      <div class="team-info">
+        <h3>Laura Torres</h3>
+        <div class="team-role">JD – Estate Planning</div>
+        <p>Attorney and advisor helping clients protect wealth across generations with precision.</p>
+        <div class="team-socials">
+          <div class="social-dot">in</div>
+          <div class="social-dot">✉</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div style="background: var(--off-white); border-top: 1px solid var(--gray-light);">
+<div class="section">
+  <div class="contact-wrapper">
+    <div class="contact-left">
+      <h2>Let's start a conversation</h2>
+      <p>Whether you're just getting started or looking for a second opinion, we're here to help you move forward with clarity.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>Address</strong>
+          <span>123 Financial Drive, Suite 400<br>Chicago, IL 60601</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <strong>Phone</strong>
+          <span>(312) 555-0198</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span>hello@greenfieldwealth.com</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕒</div>
+        <div class="contact-detail-text">
+          <strong>Hours</strong>
+          <span>Mon–Fri, 8:00 AM – 5:00 PM CT</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <h3>Send us a message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@example.com">
+      </div>
+      <div class="form-group">
+        <label>I'm interested in…</label>
+        <select>
+          <option>Wealth Planning</option>
+          <option>Investment Management</option>
+          <option>Retirement Planning</option>
+          <option>Estate Planning</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="4" placeholder="Tell us a bit about your situation…"></textarea>
+      </div>
+      <button class="form-submit">Send Message →</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 <span>Greenfield Wealth</span>. All rights reserved. &nbsp;·&nbsp; Securities offered through [Broker-Dealer]. &nbsp;·&nbsp; <a href="#" style="color: rgba(255,255,255,0.5); text-decoration:none;">Privacy Policy</a>
+</footer>
 
 </body>
 </html>
