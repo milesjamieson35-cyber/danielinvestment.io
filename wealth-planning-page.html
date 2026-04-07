@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wealth Planning – Greenfield Wealth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:#1a4a2e;--green-mid:#2d6a4f;--green-light:#52b788;--green-pale:#d8f3dc;--green-soft:#f0faf2;--white:#ffffff;--off-white:#f8fcf9;--gray:#6b7280;--gray-light:#e5e7eb;--text-dark:#111827;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text-dark);overflow-x:hidden;}
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--gray-light);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--green-deep);letter-spacing:0.03em;}
+  .logo span{color:var(--green-light);}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-links a{text-decoration:none;font-size:0.875rem;font-weight:500;color:var(--gray);transition:color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--green-deep);}
+  .nav-cta{background:var(--green-deep);color:var(--white)!important;padding:9px 22px;border-radius:6px;font-weight:500!important;}
+  .breadcrumb{background:var(--white);border-bottom:1px solid var(--gray-light);padding:12px 48px;}
+  .breadcrumb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--gray);}
+  .breadcrumb a{color:var(--green-mid);text-decoration:none;}
+  .page-hero{background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-mid) 100%);padding:80px 48px 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;background:rgba(255,255,255,0.04);border-radius:50%;}
+  .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;position:relative;z-index:1;}
+  .hero-eyebrow{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.85);padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+  .hero-left h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;color:var(--white);line-height:1.12;margin-bottom:18px;}
+  .hero-left h1 em{font-style:italic;font-weight:600;color:#a8e6be;}
+  .hero-left p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.78);max-width:520px;margin-bottom:32px;}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-white{background:var(--white);color:var(--green-deep);padding:13px 28px;border-radius:7px;font-weight:500;font-size:0.9rem;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform .15s;display:inline-block;}
+  .btn-white:hover{transform:translateY(-2px);}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,0.45);color:var(--white);padding:13px 28px;border-radius:7px;font-size:0.9rem;text-decoration:none;display:inline-block;transition:background .15s;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.1);}
+  .hero-stat-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:32px 28px;color:var(--white);}
+  .hero-stat-card h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:rgba(255,255,255,0.7);margin-bottom:20px;}
+  .stat-row{display:flex;flex-direction:column;gap:16px;}
+  .stat-item{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .stat-item:last-child{border-bottom:none;padding-bottom:0;}
+  .stat-label-sm{font-size:0.8rem;color:rgba(255,255,255,0.65);}
+  .stat-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#a8e6be;}
+  .page-body{max-width:1200px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;}
+  .main-content{min-width:0;}
+  .sidebar{position:sticky;top:88px;}
+  .section-tag{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-light);font-weight:500;margin-bottom:10px;display:block;}
+  h2.content-h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--green-deep);line-height:1.2;margin-bottom:16px;}
+  .lead{font-size:1rem;line-height:1.8;color:var(--gray);margin-bottom:36px;}
+  .help-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px;}
+  .help-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:24px 22px;transition:transform .2s,box-shadow .2s,border-color .2s;}
+  .help-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(45,106,79,0.09);border-color:var(--green-pale);}
+  .help-icon{font-size:1.5rem;margin-bottom:12px;}
+  .help-card h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--green-deep);margin-bottom:7px;}
+  .help-card p{font-size:0.825rem;color:var(--gray);line-height:1.65;}
+  .approach-steps{display:flex;flex-direction:column;gap:0;margin-bottom:56px;}
+  .approach-step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--gray-light);}
+  .approach-step:last-child{border-bottom:none;}
+  .step-circle{width:44px;height:44px;border-radius:50%;background:var(--green-soft);border:2px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-mid);flex-shrink:0;margin-top:2px;}
+  .approach-step h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-deep);margin-bottom:7px;}
+  .approach-step p{font-size:0.858rem;color:var(--gray);line-height:1.7;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:56px;}
+  .who-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:22px 18px;text-align:center;transition:border-color .2s,box-shadow .2s;}
+  .who-card:hover{border-color:var(--green-pale);box-shadow:0 8px 24px rgba(45,106,79,0.08);}
+  .who-icon{font-size:1.8rem;margin-bottom:10px;}
+  .who-card h5{font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:600;color:var(--green-deep);margin-bottom:6px;}
+  .who-card p{font-size:0.78rem;color:var(--gray);line-height:1.6;}
+  .faq-list{display:flex;flex-direction:column;gap:0;margin-bottom:56px;}
+  .faq-item{border-bottom:1px solid var(--gray-light);}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:16px;}
+  .faq-q span{font-size:0.93rem;font-weight:500;color:var(--text-dark);line-height:1.4;}
+  .faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--green-mid);flex-shrink:0;transition:background .15s,transform .2s;}
+  .faq-item.open .faq-toggle{background:var(--green-deep);color:var(--white);transform:rotate(45deg);}
+  .faq-a{display:none;padding:0 0 20px;font-size:0.858rem;color:var(--gray);line-height:1.75;}
+  .faq-item.open .faq-a{display:block;}
+  .related-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .related-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:22px 20px;transition:transform .2s,box-shadow .2s;}
+  .related-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(45,106,79,0.09);border-color:var(--green-pale);}
+  .related-icon{font-size:1.3rem;margin-bottom:10px;}
+  .related-card h5{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--green-deep);margin-bottom:6px;}
+  .related-card p{font-size:0.78rem;color:var(--gray);line-height:1.6;margin-bottom:12px;}
+  .related-link{font-size:0.78rem;font-weight:500;color:var(--green-mid);text-decoration:none;}
+  .sidebar-card{background:var(--white);border-radius:14px;border:1px solid var(--gray-light);padding:28px 24px;margin-bottom:18px;}
+  .sidebar-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-deep);margin-bottom:10px;}
+  .sidebar-card p{font-size:0.835rem;color:var(--gray);line-height:1.7;margin-bottom:18px;}
+  .sidebar-btn{display:block;text-align:center;text-decoration:none;background:var(--green-deep);color:var(--white);padding:12px 20px;border-radius:8px;font-size:0.875rem;font-weight:500;transition:background .2s;width:100%;}
+  .sidebar-btn:hover{background:var(--green-mid);}
+  .sidebar-btn.outline{background:transparent;color:var(--green-mid);border:1.5px solid var(--green-light);margin-top:10px;}
+  .sidebar-btn.outline:hover{background:var(--green-soft);}
+  .advisor-mini{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+  .advisor-mini-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--green-deep),var(--green-mid));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);flex-shrink:0;}
+  .advisor-mini-info strong{display:block;font-size:0.875rem;color:var(--text-dark);font-weight:500;}
+  .advisor-mini-info span{font-size:0.78rem;color:var(--green-light);}
+  .checklist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
+  .checklist li{display:flex;align-items:flex-start;gap:10px;font-size:0.835rem;color:var(--gray);line-height:1.5;}
+  .checkmark{width:18px;height:18px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--green-mid);flex-shrink:0;margin-top:1px;}
+  .testimonial-card{background:linear-gradient(135deg,var(--green-deep),var(--green-mid));border-radius:14px;padding:28px 24px;color:var(--white);}
+  .testimonial-card blockquote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,0.9);margin-bottom:16px;}
+  .testimonial-author{font-size:0.78rem;color:rgba(255,255,255,0.6);}
+  .testimonial-author strong{color:rgba(255,255,255,0.9);display:block;margin-bottom:2px;}
+  .stars{color:#a8e6be;font-size:0.7rem;margin-bottom:14px;letter-spacing:2px;}
+  footer{background:var(--green-deep);color:rgba(255,255,255,0.6);text-align:center;padding:28px 48px;font-size:0.8rem;}
+  footer span{color:var(--green-light);}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .hero-inner>*{animation:fadeUp .55s ease both;}
+  .hero-inner>*:nth-child(1){animation-delay:.05s;}
+  .hero-inner>*:nth-child(2){animation-delay:.2s;}
+  @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;}.hero-stat-card{display:none;}.page-body{grid-template-columns:1fr;}.sidebar{position:static;}}
+  @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.page-hero,.page-body{padding-left:24px;padding-right:24px;}.help-grid,.who-grid,.related-grid{grid-template-columns:1fr;}.breadcrumb{padding:12px 24px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Greenfield <span>Wealth</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">Services</a></li>
+    <li><a href="#">Our Team</a></li>
+    <li><a href="#">Insights</a></li>
+    <li><a href="#" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="#">Home</a><span>›</span><a href="#">Services</a><span>›</span><span>Wealth Planning</span></div></div>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">💼 Wealth Planning</div>
+      <h1>A plan built around<br><em>your entire life</em></h1>
+      <p>True wealth planning brings every dimension of your financial life into one coherent, living strategy — investments, taxes, insurance, estate, and goals — all working together.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-white">Schedule a Free Consultation</a>
+        <a href="#" class="btn-ghost">Download Our Planning Guide</a>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <h4>What clients typically discover</h4>
+      <div class="stat-row">
+        <div class="stat-item"><span class="stat-label-sm">Avg. gap found in existing plan</span><span class="stat-val">3.2 gaps</span></div>
+        <div class="stat-item"><span class="stat-label-sm">Annual tax savings identified</span><span class="stat-val">$12K+</span></div>
+        <div class="stat-item"><span class="stat-label-sm">Clients who update their will</span><span class="stat-val">78%</span></div>
+        <div class="stat-item"><span class="stat-label-sm">Client satisfaction score</span><span class="stat-val">97%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--off-white);">
+<div class="page-body">
+  <div class="main-content">
+    <span class="section-tag">What We Cover</span>
+    <h2 class="content-h2">Every corner of your financial life</h2>
+    <p class="lead">Most people have pieces of a plan scattered across different advisors, accounts, and documents. We bring it all together into one integrated strategy that actually works.</p>
+    <div class="help-grid">
+      <div class="help-card"><div class="help-icon">🎯</div><h4>Goal Mapping</h4><p>We start by understanding what you're working toward — retirement, education, a second home, financial independence — and build backward from there.</p></div>
+      <div class="help-card"><div class="help-icon">📊</div><h4>Cash Flow Analysis</h4><p>A clear picture of what's coming in, what's going out, and how to redirect more toward your goals without sacrificing your lifestyle today.</p></div>
+      <div class="help-card"><div class="help-icon">📈</div><h4>Investment Strategy</h4><p>Your investment portfolio aligned to your plan — not a generic model — with the right risk level, tax efficiency, and time horizon baked in.</p></div>
+      <div class="help-card"><div class="help-icon">💡</div><h4>Tax Coordination</h4><p>Proactive planning across all your accounts to minimize your tax burden today and in the future, coordinated with your CPA.</p></div>
+      <div class="help-card"><div class="help-icon">🔒</div><h4>Insurance Review</h4><p>We audit your existing coverage to identify gaps and redundancies — life, disability, liability, and long-term care — and recommend adjustments.</p></div>
+      <div class="help-card"><div class="help-icon">🏛️</div><h4>Estate Coordination</h4><p>Beneficiary designations, will and trust alignment, and legacy goals integrated directly into your financial plan.</p></div>
+    </div>
+
+    <span class="section-tag">Our Approach</span>
+    <h2 class="content-h2">How we build your wealth plan</h2>
+    <p class="lead">We don't hand you a PDF and disappear. Your plan is a living document we review and refine with you every year.</p>
+    <div class="approach-steps">
+      <div class="approach-step"><div class="step-circle">1</div><div><h4>Deep Discovery</h4><p>A thorough conversation about your life, values, goals, and fears. We want to understand you before we ever open a spreadsheet.</p></div></div>
+      <div class="approach-step"><div class="step-circle">2</div><div><h4>Financial Audit</h4><p>We review every account, policy, document, and tax return to get a complete picture of where things stand today.</p></div></div>
+      <div class="approach-step"><div class="step-circle">3</div><div><h4>Plan Construction</h4><p>We build a comprehensive written plan covering investments, taxes, protection, and estate — with specific recommendations and timelines.</p></div></div>
+      <div class="approach-step"><div class="step-circle">4</div><div><h4>Implementation</h4><p>We put the plan into motion — opening accounts, restructuring investments, coordinating with attorneys and CPAs, and executing on every action item.</p></div></div>
+      <div class="approach-step"><div class="step-circle">5</div><div><h4>Annual Reviews & Updates</h4><p>Life changes. Markets change. Tax laws change. We meet with you every year to review, update, and keep your plan aligned with your life.</p></div></div>
+    </div>
+
+    <span class="section-tag">Who We Work With</span>
+    <h2 class="content-h2">Is comprehensive planning right for you?</h2>
+    <p class="lead" style="margin-bottom:24px;">We work best with clients who are ready to take a holistic view of their finances — and commit to a long-term partnership.</p>
+    <div class="who-grid">
+      <div class="who-card"><div class="who-icon">🚀</div><h5>High Earners</h5><p>Professionals and executives with complex compensation, equity, and tax situations who need more than basic advice.</p></div>
+      <div class="who-card"><div class="who-icon">👨‍👩‍👧</div><h5>Growing Families</h5><p>Couples navigating major life transitions — home purchases, children, career changes — who want a clear financial roadmap.</p></div>
+      <div class="who-card"><div class="who-icon">🏢</div><h5>Business Owners</h5><p>Entrepreneurs whose personal and business finances are deeply intertwined and need coordinated, expert guidance.</p></div>
+    </div>
+
+    <span class="section-tag">Common Questions</span>
+    <h2 class="content-h2">Frequently asked questions</h2>
+    <p class="lead">Honest answers to the questions we hear most.</p>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What's the difference between wealth planning and investment management?</span><div class="faq-toggle">+</div></div><div class="faq-a">Investment management is one component of wealth planning. A wealth plan encompasses your entire financial life — goals, cash flow, taxes, insurance, estate, and investments — all working together. Think of investment management as the engine and wealth planning as the whole car.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How much does comprehensive planning cost?</span><div class="faq-toggle">+</div></div><div class="faq-a">We charge a fee based on assets under management, which aligns our incentives with yours — we do better when you do better. We're happy to walk through our fee structure in detail during a no-obligation consultation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How often will I hear from my advisor?</span><div class="faq-toggle">+</div></div><div class="faq-a">At minimum, we meet with every planning client annually for a full plan review. Most clients also connect with us quarterly, and we proactively reach out during major market events or life changes. You can always call or email your advisor directly — no call centers.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do I need to bring all my accounts to Greenfield?</span><div class="faq-toggle">+</div></div><div class="faq-a">Not necessarily. We can provide comprehensive planning advice even if we don't manage all your assets. That said, consolidating accounts often leads to better coordination and lower overall costs. We'll give you an honest recommendation based on your situation.</div></div>
+    </div>
+
+    <span class="section-tag">Related Services</span>
+    <h2 class="content-h2">Often paired together</h2>
+    <div class="related-grid">
+      <div class="related-card"><div class="related-icon">📈</div><h5>Investment Management</h5><p>Your portfolio built and managed as part of your broader wealth plan.</p><a href="#" class="related-link">Learn more →</a></div>
+      <div class="related-card"><div class="related-icon">🏖️</div><h5>Retirement Planning</h5><p>A retirement income strategy woven into your comprehensive plan.</p><a href="#" class="related-link">Learn more →</a></div>
+      <div class="related-card"><div class="related-icon">💡</div><h5>Tax Strategy</h5><p>Year-round tax planning coordinated with your wealth plan.</p><a href="#" class="related-link">Learn more →</a></div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h4>Talk to a Wealth Planner</h4>
+      <div class="advisor-mini"><div class="advisor-mini-avatar">JM</div><div class="advisor-mini-info"><strong>James Mitchell, CFP®</strong><span>Managing Partner</span></div></div>
+      <p>Schedule a complimentary 30-minute call to discuss your financial goals and what a comprehensive plan could mean for you.</p>
+      <a href="#" class="sidebar-btn">Book a Free Consultation</a>
+      <a href="#" class="sidebar-btn outline">Send a Message</a>
+    </div>
+    <div class="sidebar-card">
+      <h4>What a good plan covers</h4>
+      <ul class="checklist">
+        <li><div class="checkmark">✓</div>Written goals with timelines</li>
+        <li><div class="checkmark">✓</div>Net worth & cash flow analysis</li>
+        <li><div class="checkmark">✓</div>Investment strategy & allocation</li>
+        <li><div class="checkmark">✓</div>Tax minimization roadmap</li>
+        <li><div class="checkmark">✓</div>Insurance gap analysis</li>
+        <li><div class="checkmark">✓</div>Estate & beneficiary review</li>
+        <li><div class="checkmark">✓</div>Annual review schedule</li>
+      </ul>
+      <a href="#" class="sidebar-btn outline">Download Planning Checklist</a>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"For the first time, I feel like all the pieces of my financial life are actually connected. The plan gave me clarity I didn't know I was missing."</blockquote>
+      <div class="testimonial-author"><strong>Michelle T.</strong>Greenfield client since 2020</div>
+    </div>
+  </aside>
+</div>
+</div>
+
+<footer>© 2026 <span>Greenfield Wealth</span>. All rights reserved. &nbsp;·&nbsp; Securities offered through [Broker-Dealer]. &nbsp;·&nbsp; <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>
