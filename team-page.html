@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team – Greenfield Wealth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:  #1a4a2e;
+    --green-mid:   #2d6a4f;
+    --green-light: #52b788;
+    --green-pale:  #d8f3dc;
+    --green-soft:  #f0faf2;
+    --white:       #ffffff;
+    --off-white:   #f8fcf9;
+    --gray:        #6b7280;
+    --gray-light:  #e5e7eb;
+    --text-dark:   #111827;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text-dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white); border-bottom: 1px solid var(--gray-light);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 68px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+  .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--green-deep); letter-spacing: 0.03em; }
+  .logo span { color: var(--green-light); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.875rem; font-weight: 500; color: var(--gray); transition: color .2s; letter-spacing: 0.02em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--green-deep); }
+  .nav-cta { background: var(--green-deep); color: var(--white) !important; padding: 9px 22px; border-radius: 6px; font-weight: 500 !important; }
+  .nav-cta:hover { background: var(--green-mid) !important; }
+
+  /* PAGE HERO */
+  .page-hero {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+    padding: 72px 48px 64px; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; top: -100px; right: -60px;
+    width: 420px; height: 420px; background: rgba(255,255,255,0.04); border-radius: 50%;
+  }
+  .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-eyebrow {
+    display: inline-block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+  .page-hero h1 em { font-style: italic; font-weight: 600; color: #a8e6be; }
+  .page-hero p { font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.75); max-width: 600px; }
+
+  /* BREADCRUMB */
+  .breadcrumb { background: var(--white); border-bottom: 1px solid var(--gray-light); padding: 12px 48px; }
+  .breadcrumb-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--gray); }
+  .breadcrumb a { color: var(--green-mid); text-decoration: none; }
+
+  /* SECTION */
+  .section { padding: 72px 48px; max-width: 1200px; margin: 0 auto; }
+  .section-tag { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); font-weight: 500; margin-bottom: 10px; display: block; }
+  .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; color: var(--green-deep); line-height: 1.2; }
+  .section-header p { margin-top: 12px; color: var(--gray); font-size: 0.95rem; line-height: 1.7; max-width: 560px; }
+
+  /* LEADERSHIP CARDS — large horizontal */
+  .leadership-grid { display: flex; flex-direction: column; gap: 24px; margin-top: 48px; }
+  .leader-card {
+    background: var(--white); border-radius: 16px; border: 1px solid var(--gray-light);
+    display: grid; grid-template-columns: 220px 1fr; overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .leader-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(45,106,79,0.1); }
+  .leader-avatar {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 300;
+    color: var(--white); letter-spacing: 0.05em; min-height: 220px;
+  }
+  .leader-card:nth-child(1) .leader-avatar { background: linear-gradient(160deg, #1a4a2e, #2d6a4f); }
+  .leader-card:nth-child(2) .leader-avatar { background: linear-gradient(160deg, #2d6a4f, #52b788); }
+  .leader-info { padding: 36px 40px; display: flex; flex-direction: column; justify-content: center; }
+  .leader-role { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-light); margin-bottom: 6px; }
+  .leader-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
+  .leader-creds { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .cred-badge { background: var(--green-soft); color: var(--green-mid); font-size: 0.72rem; font-weight: 500; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--green-pale); }
+  .leader-info p { font-size: 0.875rem; color: var(--gray); line-height: 1.75; margin-bottom: 20px; }
+  .leader-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .leader-stats { display: flex; gap: 28px; }
+  .lstat { text-align: left; }
+  .lstat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--green-deep); display: block; }
+  .lstat-label { font-size: 0.73rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; }
+  .leader-socials { display: flex; gap: 8px; }
+  .social-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--green-soft); border: 1px solid var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 600; color: var(--green-mid); cursor: pointer; transition: background .15s; }
+  .social-btn:hover { background: var(--green-pale); }
+
+  /* ADVISOR CARDS GRID — medium */
+  .advisors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+  .advisor-card {
+    background: var(--white); border-radius: 14px; border: 1px solid var(--gray-light);
+    overflow: hidden; transition: transform .2s, box-shadow .2s; cursor: pointer;
+  }
+  .advisor-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(45,106,79,0.11); }
+  .advisor-avatar {
+    width: 100%; height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300;
+    color: var(--white); letter-spacing: 0.05em;
+  }
+  .advisor-card:nth-child(1) .advisor-avatar { background: linear-gradient(135deg, #1a4a2e, #40916c); }
+  .advisor-card:nth-child(2) .advisor-avatar { background: linear-gradient(135deg, #40916c, #74c69d); }
+  .advisor-card:nth-child(3) .advisor-avatar { background: linear-gradient(135deg, #2d6a4f, #52b788); }
+  .advisor-info { padding: 22px 24px 26px; }
+  .advisor-role { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); margin-bottom: 4px; }
+  .advisor-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--green-deep); margin-bottom: 8px; }
+  .advisor-info p { font-size: 0.835rem; color: var(--gray); line-height: 1.65; margin-bottom: 14px; }
+  .advisor-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tag-chip { background: var(--green-soft); color: var(--green-mid); font-size: 0.7rem; padding: 3px 9px; border-radius: 20px; border: 1px solid var(--green-pale); }
+  .advisor-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--gray-light); padding-top: 14px; margin-top: 4px; }
+  .advisor-exp { font-size: 0.78rem; color: var(--gray); }
+  .advisor-exp strong { color: var(--green-deep); }
+  .advisor-socials { display: flex; gap: 6px; }
+
+  /* SUPPORT STAFF */
+  .support-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
+  .support-card {
+    background: var(--white); border-radius: 12px; border: 1px solid var(--gray-light);
+    padding: 24px 20px; text-align: center;
+    transition: transform .2s, box-shadow .2s; cursor: pointer;
+  }
+  .support-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(45,106,79,0.09); }
+  .support-initials {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400;
+    color: var(--white); margin: 0 auto 14px;
+  }
+  .support-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--green-deep); margin-bottom: 4px; }
+  .support-role { font-size: 0.73rem; color: var(--green-light); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .support-card p { font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+
+  /* VALUES STRIP */
+  .values-bg { background: var(--white); border-top: 1px solid var(--gray-light); border-bottom: 1px solid var(--gray-light); }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; }
+  .value-item { padding: 32px 28px; border-right: 1px solid var(--gray-light); }
+  .value-item:last-child { border-right: none; }
+  .value-icon { font-size: 1.6rem; margin-bottom: 14px; }
+  .value-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--green-deep); margin-bottom: 8px; }
+  .value-item p { font-size: 0.835rem; color: var(--gray); line-height: 1.65; }
+
+  /* CTA */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+    padding: 64px 48px; text-align: center; color: var(--white);
+  }
+  .cta-strip h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 400; margin-bottom: 14px; }
+  .cta-strip p { font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: var(--white); color: var(--green-deep); padding: 13px 30px; border-radius: 7px; font-weight: 500; font-size: 0.9rem; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: transform .15s; }
+  .btn-white:hover { transform: translateY(-2px); }
+  .btn-ghost { border: 1.5px solid rgba(255,255,255,0.45); color: var(--white); padding: 13px 30px; border-radius: 7px; font-size: 0.9rem; text-decoration: none; transition: background .15s; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+  /* FOOTER */
+  footer { background: var(--green-deep); color: rgba(255,255,255,0.6); text-align: center; padding: 28px 48px; font-size: 0.8rem; }
+  footer span { color: var(--green-light); }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .page-hero-inner > * { animation: fadeUp .55s ease both; }
+  .page-hero-inner > *:nth-child(1) { animation-delay:.05s; }
+  .page-hero-inner > *:nth-child(2) { animation-delay:.15s; }
+  .page-hero-inner > *:nth-child(3) { animation-delay:.25s; }
+
+  @media (max-width: 900px) {
+    .leader-card { grid-template-columns: 1fr; }
+    .leader-avatar { min-height: 160px; }
+    .advisors-grid { grid-template-columns: repeat(2, 1fr); }
+    .support-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-item { border-bottom: 1px solid var(--gray-light); }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; } .nav-links { display: none; }
+    .page-hero, .section { padding-left: 24px; padding-right: 24px; }
+    .advisors-grid, .support-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .breadcrumb { padding: 12px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Greenfield <span>Wealth</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#" class="active">Our Team</a></li>
+    <li><a href="#">Insights</a></li>
+    <li><a href="#" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Home</a> <span>›</span> <span>Our Team</span>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Who We Are</div>
+    <h1>Advisors who are<br><em>genuinely invested in you</em></h1>
+    <p>Our team combines deep expertise with a genuine commitment to client relationships — built on trust, transparency, and decades of shared experience.</p>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<div style="background: var(--off-white);">
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Leadership</span>
+    <h2>Founding partners &amp; principals</h2>
+    <p>The advisors who built this firm from the ground up — and still lead every client relationship personally.</p>
+  </div>
+  <div class="leadership-grid">
+    <div class="leader-card">
+      <div class="leader-avatar">JM</div>
+      <div class="leader-info">
+        <div class="leader-role">Managing Partner</div>
+        <h3>James Mitchell</h3>
+        <div class="leader-creds">
+          <span class="cred-badge">CFP®</span>
+          <span class="cred-badge">ChFC®</span>
+          <span class="cred-badge">Northwestern University</span>
+        </div>
+        <p>James founded Greenfield Wealth with a simple belief: that every client deserves a financial plan as unique as their life. With over two decades advising families through market cycles, career transitions, and generational wealth transfers, he brings a steady, experienced hand to every relationship. His specialty is translating complex financial decisions into clear, confident choices.</p>
+        <div class="leader-bottom">
+          <div class="leader-stats">
+            <div class="lstat"><span class="lstat-num">22+</span><span class="lstat-label">Years Experience</span></div>
+            <div class="lstat"><span class="lstat-num">$1.2B</span><span class="lstat-label">Assets Advised</span></div>
+            <div class="lstat"><span class="lstat-num">400+</span><span class="lstat-label">Families Served</span></div>
+          </div>
+          <div class="leader-socials">
+            <div class="social-btn">in</div>
+            <div class="social-btn">✉</div>
+            <div class="social-btn">📞</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leader-card">
+      <div class="leader-avatar">SR</div>
+      <div class="leader-info">
+        <div class="leader-role">Director of Investments</div>
+        <h3>Sarah Reynolds</h3>
+        <div class="leader-creds">
+          <span class="cred-badge">CFA®</span>
+          <span class="cred-badge">CIMA®</span>
+          <span class="cred-badge">University of Chicago Booth</span>
+        </div>
+        <p>Sarah leads Greenfield's investment committee and oversees portfolio construction for all client accounts. Prior to joining the firm, she spent 12 years at a Chicago-based institutional investment manager, developing expertise in alternative asset allocation, ESG portfolio design, and risk-adjusted return optimization. She brings institutional rigor to individual client portfolios.</p>
+        <div class="leader-bottom">
+          <div class="leader-stats">
+            <div class="lstat"><span class="lstat-num">18+</span><span class="lstat-label">Years Experience</span></div>
+            <div class="lstat"><span class="lstat-num">$1.1B</span><span class="lstat-label">Portfolios Managed</span></div>
+            <div class="lstat"><span class="lstat-num">3</span><span class="lstat-label">Market Cycles</span></div>
+          </div>
+          <div class="leader-socials">
+            <div class="social-btn">in</div>
+            <div class="social-btn">✉</div>
+            <div class="social-btn">📞</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ADVISORS -->
+<div style="background: var(--white); border-top: 1px solid var(--gray-light);">
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Advisory Team</span>
+    <h2>Your dedicated advisors</h2>
+    <p>Credentialed specialists who bring depth and focus to every area of financial planning.</p>
+  </div>
+  <div class="advisors-grid">
+    <div class="advisor-card">
+      <div class="advisor-avatar">DK</div>
+      <div class="advisor-info">
+        <div class="advisor-role">Retirement Specialist</div>
+        <h3>David Kim</h3>
+        <p>David focuses exclusively on retirement income planning, helping clients design strategies that sustain them through decades of post-work life — no matter what markets do.</p>
+        <div class="advisor-tags">
+          <span class="tag-chip">CFP®</span>
+          <span class="tag-chip">Retirement Income</span>
+          <span class="tag-chip">Social Security</span>
+        </div>
+        <div class="advisor-footer">
+          <span class="advisor-exp"><strong>16 yrs</strong> experience</span>
+          <div class="advisor-socials">
+            <div class="social-btn" style="width:28px;height:28px;font-size:0.62rem;">in</div>
+            <div class="social-btn" style="width:28px;height:28px;font-size:0.62rem;">✉</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advisor-card">
+      <div class="advisor-avatar">LT</div>
+      <div class="advisor-info">
+        <div class="advisor-role">Estate Planning</div>
+        <h3>Laura Torres</h3>
+        <p>An attorney and financial advisor, Laura helps clients navigate wills, trusts, and charitable giving to ensure their wealth is protected and transferred with intention.</p>
+        <div class="advisor-tags">
+          <span class="tag-chip">JD</span>
+          <span class="tag-chip">Estate & Trust</span>
+          <span class="tag-chip">Philanthropy</span>
+        </div>
+        <div class="advisor-footer">
+          <span class="advisor-exp"><strong>12 yrs</strong> experience</span>
+          <div class="advisor-socials">
+            <div class="social-btn" style="width:28px;height:28px;font-size:0.62rem;">in</div>
+            <div class="social-btn" style="width:28px;height:28px;font-size:0.62rem;">✉</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advisor-card">
+      <div class="advisor-avatar">MC</div>
+      <div class="advisor-info">
+        <div class="advisor-role">Tax Strategy</div>
+        <h3>Michael Chen</h3>
+        <p>Michael coordinates tax-smart planning across investment accounts, retirement distributions, and business structures to help clients keep more of what they earn.</p>
+        <div class="advisor-tags">
+          <span class="tag-chip">CPA</span>
+          <span class="tag-chip">Tax Planning</span>
+          <span class="tag-chip">Business Owners</span>
+        </div>
+        <div class="advisor-footer">
+          <span class="advisor-exp"><strong>10 yrs</strong> experience</span>
+          <div class="advisor-socials">
+            <div class="social-btn" style="width:28px;height:28px;font-size:0.62rem;">in</div>
+            <div class="social-btn" style="width:28px;height:28px;font-size:0.62rem;">✉</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SUPPORT TEAM -->
+<div style="background: var(--off-white); border-top: 1px solid var(--gray-light);">
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Client Services</span>
+    <h2>The team behind every great experience</h2>
+    <p>Dedicated professionals who ensure every client interaction is seamless, responsive, and personal.</p>
+  </div>
+  <div class="support-grid">
+    <div class="support-card">
+      <div class="support-initials">AP</div>
+      <h4>Amanda Parker</h4>
+      <div class="support-role">Client Relations Director</div>
+      <p>Your first call and trusted point of contact for all account and service needs.</p>
+    </div>
+    <div class="support-card">
+      <div class="support-initials">RJ</div>
+      <h4>Robert James</h4>
+      <div class="support-role">Portfolio Operations</div>
+      <p>Ensures trades, transfers, and account changes are executed accurately and on time.</p>
+    </div>
+    <div class="support-card">
+      <div class="support-initials">TN</div>
+      <h4>Tanya Nguyen</h4>
+      <div class="support-role">Financial Planning Analyst</div>
+      <p>Builds and maintains the financial models that power each client's plan.</p>
+    </div>
+    <div class="support-card">
+      <div class="support-initials">BW</div>
+      <h4>Brian Walsh</h4>
+      <div class="support-role">Compliance & Operations</div>
+      <p>Keeps our practice aligned with regulatory requirements so clients can invest with confidence.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- VALUES -->
+<div class="values-bg">
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Our Culture</span>
+    <h2>What we believe in</h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-item">
+      <div class="value-icon">🤝</div>
+      <h4>Fiduciary First</h4>
+      <p>We are legally and ethically obligated to act in your best interest — always. No commissions, no conflicts.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🔍</div>
+      <h4>Radical Transparency</h4>
+      <p>You'll always know what you're paying, why we're recommending it, and what we expect from every strategy.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🌱</div>
+      <h4>Long-Term Thinking</h4>
+      <p>We measure success in decades, not quarters. Our advice is built to endure, not just perform in the short run.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">💬</div>
+      <h4>Accessible Guidance</h4>
+      <p>Your advisor picks up the phone. Every client gets direct access — no gatekeeping, no call centers.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>Ready to meet the team?</h2>
+  <p>Schedule a complimentary introduction with one of our advisors — no obligation, just a conversation.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-white">Schedule a Meeting</a>
+    <a href="#" class="btn-ghost">View Our Services</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 <span>Greenfield Wealth</span>. All rights reserved. &nbsp;·&nbsp; Securities offered through [Broker-Dealer]. &nbsp;·&nbsp;
+  <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a>
+</footer>
+
+</body>
+</html>
