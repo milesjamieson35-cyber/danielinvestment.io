@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Management – Greenfield Wealth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--green-deep:#1a4a2e;--green-mid:#2d6a4f;--green-light:#52b788;--green-pale:#d8f3dc;--green-soft:#f0faf2;--white:#ffffff;--off-white:#f8fcf9;--gray:#6b7280;--gray-light:#e5e7eb;--text-dark:#111827;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text-dark);overflow-x:hidden;}
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--gray-light);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--green-deep);letter-spacing:0.03em;}.logo span{color:var(--green-light);}
+  .nav-links{display:flex;gap:36px;list-style:none;}.nav-links a{text-decoration:none;font-size:0.875rem;font-weight:500;color:var(--gray);transition:color .2s;}.nav-links a:hover,.nav-links a.active{color:var(--green-deep);}
+  .nav-cta{background:var(--green-deep);color:var(--white)!important;padding:9px 22px;border-radius:6px;font-weight:500!important;}
+  .breadcrumb{background:var(--white);border-bottom:1px solid var(--gray-light);padding:12px 48px;}.breadcrumb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--gray);}.breadcrumb a{color:var(--green-mid);text-decoration:none;}
+  .page-hero{background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-mid) 100%);padding:80px 48px 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;background:rgba(255,255,255,0.04);border-radius:50%;}
+  .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;position:relative;z-index:1;}
+  .hero-eyebrow{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.85);padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+  .hero-left h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;color:var(--white);line-height:1.12;margin-bottom:18px;}.hero-left h1 em{font-style:italic;font-weight:600;color:#a8e6be;}
+  .hero-left p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.78);max-width:520px;margin-bottom:32px;}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-white{background:var(--white);color:var(--green-deep);padding:13px 28px;border-radius:7px;font-weight:500;font-size:0.9rem;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform .15s;display:inline-block;}.btn-white:hover{transform:translateY(-2px);}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,0.45);color:var(--white);padding:13px 28px;border-radius:7px;font-size:0.9rem;text-decoration:none;display:inline-block;transition:background .15s;}.btn-ghost:hover{background:rgba(255,255,255,0.1);}
+  .hero-stat-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:32px 28px;color:var(--white);}
+  .hero-stat-card h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:rgba(255,255,255,0.7);margin-bottom:20px;}
+  .stat-row{display:flex;flex-direction:column;gap:16px;}.stat-item{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.1);}.stat-item:last-child{border-bottom:none;padding-bottom:0;}.stat-label-sm{font-size:0.8rem;color:rgba(255,255,255,0.65);}.stat-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#a8e6be;}
+  .page-body{max-width:1200px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;}
+  .main-content{min-width:0;}.sidebar{position:sticky;top:88px;}
+  .section-tag{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-light);font-weight:500;margin-bottom:10px;display:block;}
+  h2.content-h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--green-deep);line-height:1.2;margin-bottom:16px;}
+  .lead{font-size:1rem;line-height:1.8;color:var(--gray);margin-bottom:36px;}
+  .help-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px;}.help-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:24px 22px;transition:transform .2s,box-shadow .2s,border-color .2s;}.help-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(45,106,79,0.09);border-color:var(--green-pale);}.help-icon{font-size:1.5rem;margin-bottom:12px;}.help-card h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--green-deep);margin-bottom:7px;}.help-card p{font-size:0.825rem;color:var(--gray);line-height:1.65;}
+  .approach-steps{display:flex;flex-direction:column;gap:0;margin-bottom:56px;}.approach-step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--gray-light);}.approach-step:last-child{border-bottom:none;}.step-circle{width:44px;height:44px;border-radius:50%;background:var(--green-soft);border:2px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-mid);flex-shrink:0;margin-top:2px;}.approach-step h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-deep);margin-bottom:7px;}.approach-step p{font-size:0.858rem;color:var(--gray);line-height:1.7;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:56px;}.who-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:22px 18px;text-align:center;transition:border-color .2s,box-shadow .2s;}.who-card:hover{border-color:var(--green-pale);box-shadow:0 8px 24px rgba(45,106,79,0.08);}.who-icon{font-size:1.8rem;margin-bottom:10px;}.who-card h5{font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:600;color:var(--green-deep);margin-bottom:6px;}.who-card p{font-size:0.78rem;color:var(--gray);line-height:1.6;}
+  .faq-list{display:flex;flex-direction:column;gap:0;margin-bottom:56px;}.faq-item{border-bottom:1px solid var(--gray-light);}.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:16px;}.faq-q span{font-size:0.93rem;font-weight:500;color:var(--text-dark);line-height:1.4;}.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--green-mid);flex-shrink:0;transition:background .15s,transform .2s;}.faq-item.open .faq-toggle{background:var(--green-deep);color:var(--white);transform:rotate(45deg);}.faq-a{display:none;padding:0 0 20px;font-size:0.858rem;color:var(--gray);line-height:1.75;}.faq-item.open .faq-a{display:block;}
+  .related-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}.related-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:22px 20px;transition:transform .2s,box-shadow .2s;}.related-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(45,106,79,0.09);border-color:var(--green-pale);}.related-icon{font-size:1.3rem;margin-bottom:10px;}.related-card h5{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--green-deep);margin-bottom:6px;}.related-card p{font-size:0.78rem;color:var(--gray);line-height:1.6;margin-bottom:12px;}.related-link{font-size:0.78rem;font-weight:500;color:var(--green-mid);text-decoration:none;}
+  .sidebar-card{background:var(--white);border-radius:14px;border:1px solid var(--gray-light);padding:28px 24px;margin-bottom:18px;}.sidebar-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-deep);margin-bottom:10px;}.sidebar-card p{font-size:0.835rem;color:var(--gray);line-height:1.7;margin-bottom:18px;}.sidebar-btn{display:block;text-align:center;text-decoration:none;background:var(--green-deep);color:var(--white);padding:12px 20px;border-radius:8px;font-size:0.875rem;font-weight:500;transition:background .2s;width:100%;}.sidebar-btn:hover{background:var(--green-mid);}.sidebar-btn.outline{background:transparent;color:var(--green-mid);border:1.5px solid var(--green-light);margin-top:10px;}.sidebar-btn.outline:hover{background:var(--green-soft);}
+  .advisor-mini{display:flex;align-items:center;gap:14px;margin-bottom:18px;}.advisor-mini-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--green-deep),var(--green-mid));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);flex-shrink:0;}.advisor-mini-info strong{display:block;font-size:0.875rem;color:var(--text-dark);font-weight:500;}.advisor-mini-info span{font-size:0.78rem;color:var(--green-light);}
+  .checklist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}.checklist li{display:flex;align-items:flex-start;gap:10px;font-size:0.835rem;color:var(--gray);line-height:1.5;}.checkmark{width:18px;height:18px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--green-mid);flex-shrink:0;margin-top:1px;}
+  .testimonial-card{background:linear-gradient(135deg,var(--green-deep),var(--green-mid));border-radius:14px;padding:28px 24px;color:var(--white);}.testimonial-card blockquote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,0.9);margin-bottom:16px;}.testimonial-author{font-size:0.78rem;color:rgba(255,255,255,0.6);}.testimonial-author strong{color:rgba(255,255,255,0.9);display:block;margin-bottom:2px;}.stars{color:#a8e6be;font-size:0.7rem;margin-bottom:14px;letter-spacing:2px;}
+  footer{background:var(--green-deep);color:rgba(255,255,255,0.6);text-align:center;padding:28px 48px;font-size:0.8rem;}footer span{color:var(--green-light);}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}.hero-inner>*{animation:fadeUp .55s ease both;}.hero-inner>*:nth-child(1){animation-delay:.05s;}.hero-inner>*:nth-child(2){animation-delay:.2s;}
+  @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;}.hero-stat-card{display:none;}.page-body{grid-template-columns:1fr;}.sidebar{position:static;}}
+  @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.page-hero,.page-body{padding-left:24px;padding-right:24px;}.help-grid,.who-grid,.related-grid{grid-template-columns:1fr;}.breadcrumb{padding:12px 24px;}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Greenfield <span>Wealth</span></div><ul class="nav-links"><li><a href="#">Home</a></li><li><a href="#" class="active">Services</a></li><li><a href="#">Our Team</a></li><li><a href="#">Insights</a></li><li><a href="#" class="nav-cta">Get Started</a></li></ul></nav>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="#">Home</a><span>›</span><a href="#">Services</a><span>›</span><span>Investment Management</span></div></div>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">📈 Investment Management</div>
+      <h1>Portfolios built for<br><em>your life, not the market</em></h1>
+      <p>We build and manage investment portfolios around your personal goals, risk tolerance, and tax situation — not off-the-shelf models designed for the average investor.</p>
+      <div class="hero-btns"><a href="#" class="btn-white">Schedule a Free Consultation</a><a href="#" class="btn-ghost">View Our Investment Philosophy</a></div>
+    </div>
+    <div class="hero-stat-card">
+      <h4>Our investment approach</h4>
+      <div class="stat-row">
+        <div class="stat-item"><span class="stat-label-sm">Assets under management</span><span class="stat-val">$2.4B+</span></div>
+        <div class="stat-item"><span class="stat-label-sm">Avg. portfolio rebalances/yr</span><span class="stat-val">4–6</span></div>
+        <div class="stat-item"><span class="stat-label-sm">Tax-loss harvesting savings</span><span class="stat-val">$8K avg</span></div>
+        <div class="stat-item"><span class="stat-label-sm">ESG portfolio option available</span><span class="stat-val">Yes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--off-white);">
+<div class="page-body">
+  <div class="main-content">
+    <span class="section-tag">What We Offer</span>
+    <h2 class="content-h2">Institutional-quality investing for individuals</h2>
+    <p class="lead">You deserve the same rigor in portfolio construction that large institutions use — combined with the personal attention only an independent firm can provide.</p>
+    <div class="help-grid">
+      <div class="help-card"><div class="help-icon">🎯</div><h4>Goal-Based Allocation</h4><p>Your portfolio is structured around your specific goals and time horizons — not a generic 60/40 model that ignores your life circumstances.</p></div>
+      <div class="help-card"><div class="help-icon">⚖️</div><h4>Risk Management</h4><p>We calibrate your portfolio's risk level to your true tolerance — not just what you say, but how we've seen you respond to volatility in the past.</p></div>
+      <div class="help-card"><div class="help-icon">🔄</div><h4>Disciplined Rebalancing</h4><p>We monitor your allocation and rebalance systematically — keeping your portfolio aligned to your plan even when markets drift.</p></div>
+      <div class="help-card"><div class="help-icon">💸</div><h4>Tax-Loss Harvesting</h4><p>We identify opportunities to realize losses that offset gains, reducing your tax bill without meaningfully altering your investment strategy.</p></div>
+      <div class="help-card"><div class="help-icon">🌱</div><h4>ESG & Values-Based Investing</h4><p>If it matters to you where your money is invested, we offer portfolios that align with your values without sacrificing return potential.</p></div>
+      <div class="help-card"><div class="help-icon">📋</div><h4>Transparent Reporting</h4><p>Clear, plain-language performance reports so you always know how your portfolio is performing and why — no jargon, no surprises.</p></div>
+    </div>
+
+    <span class="section-tag">Our Process</span>
+    <h2 class="content-h2">How we manage your portfolio</h2>
+    <p class="lead">Our investment committee meets regularly to review markets, assess risks, and ensure every portfolio remains aligned to its objectives.</p>
+    <div class="approach-steps">
+      <div class="approach-step"><div class="step-circle">1</div><div><h4>Risk & Goals Assessment</h4><p>We begin with a thorough understanding of your investment goals, time horizons, income needs, and emotional relationship with risk before making a single allocation decision.</p></div></div>
+      <div class="approach-step"><div class="step-circle">2</div><div><h4>Portfolio Construction</h4><p>We build a diversified portfolio across asset classes, geographies, and factors — selecting low-cost, institutional-quality funds and individual securities where appropriate.</p></div></div>
+      <div class="approach-step"><div class="step-circle">3</div><div><h4>Tax Optimization</h4><p>We consider tax efficiency at every step — asset location across account types, tax-loss harvesting opportunities, and minimizing unnecessary turnover.</p></div></div>
+      <div class="approach-step"><div class="step-circle">4</div><div><h4>Ongoing Monitoring</h4><p>Our investment committee reviews portfolios continuously, monitoring for drift, risk events, and opportunities to improve after-tax returns.</p></div></div>
+      <div class="approach-step"><div class="step-circle">5</div><div><h4>Quarterly Reviews With You</h4><p>We meet with you regularly to review performance, discuss market conditions, and ensure your portfolio still reflects your goals and life situation.</p></div></div>
+    </div>
+
+    <span class="section-tag">Who We Work With</span>
+    <h2 class="content-h2">Who benefits most from our approach</h2>
+    <p class="lead" style="margin-bottom:24px;">We work with investors at all wealth levels who want more than a brokerage account and a target-date fund.</p>
+    <div class="who-grid">
+      <div class="who-card"><div class="who-icon">💼</div><h5>Accumulators</h5><p>Building wealth over time through systematic investing, employer plans, and disciplined savings with a long time horizon.</p></div>
+      <div class="who-card"><div class="who-icon">🔀</div><h5>In Transition</h5><p>Rolling over a 401(k), receiving an inheritance, or managing an equity event and needing a clear plan for a large sum.</p></div>
+      <div class="who-card"><div class="who-icon">🌅</div><h5>Near or In Retirement</h5><p>Shifting from growth to income-oriented investing and needing a portfolio that generates reliable cash flow.</p></div>
+    </div>
+
+    <span class="section-tag">Common Questions</span>
+    <h2 class="content-h2">Frequently asked questions</h2>
+    <p class="lead">Straightforward answers to what investors ask us most.</p>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you use active or passive investing strategies?</span><div class="faq-toggle">+</div></div><div class="faq-a">Both, depending on the asset class and opportunity. We believe in low-cost passive indexing for highly efficient markets like U.S. large-cap equities, and selective active management in areas where skilled managers can add value — such as small-cap, international, and alternative investments.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What is your minimum investment?</span><div class="faq-toggle">+</div></div><div class="faq-a">Our investment management service is available to clients with investable assets of $500,000 or more. We also work with younger accumulators as part of a comprehensive planning relationship. Contact us to discuss your specific situation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How do you handle market downturns?</span><div class="faq-toggle">+</div></div><div class="faq-a">We build portfolios to weather volatility from the start — through diversification, appropriate risk levels, and liquidity buffers. When markets decline, we proactively reach out to clients, look for tax-loss harvesting opportunities, and in some cases rebalance into equities at lower prices.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can I see a sample portfolio or performance history?</span><div class="faq-toggle">+</div></div><div class="faq-a">Yes. We're happy to share representative portfolio structures and historical performance data during a consultation. Past performance doesn't guarantee future results, but we believe in full transparency around how our portfolios have performed across market cycles.</div></div>
+    </div>
+
+    <span class="section-tag">Related Services</span>
+    <h2 class="content-h2">Often paired together</h2>
+    <div class="related-grid">
+      <div class="related-card"><div class="related-icon">💼</div><h5>Wealth Planning</h5><p>Your portfolio as one component of a comprehensive financial plan.</p><a href="#" class="related-link">Learn more →</a></div>
+      <div class="related-card"><div class="related-icon">💡</div><h5>Tax Strategy</h5><p>Coordinate investments with year-round tax planning to keep more of your returns.</p><a href="#" class="related-link">Learn more →</a></div>
+      <div class="related-card"><div class="related-icon">🏖️</div><h5>Retirement Planning</h5><p>Portfolio construction designed around your specific retirement income needs.</p><a href="#" class="related-link">Learn more →</a></div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h4>Talk to an Investment Advisor</h4>
+      <div class="advisor-mini"><div class="advisor-mini-avatar">SR</div><div class="advisor-mini-info"><strong>Sarah Reynolds, CFA®</strong><span>Director of Investments</span></div></div>
+      <p>Schedule a complimentary portfolio review with Sarah to discuss your investment goals and current strategy.</p>
+      <a href="#" class="sidebar-btn">Book a Portfolio Review</a>
+      <a href="#" class="sidebar-btn outline">Send a Message</a>
+    </div>
+    <div class="sidebar-card">
+      <h4>Our investment principles</h4>
+      <ul class="checklist">
+        <li><div class="checkmark">✓</div>Goals-based, not benchmark-driven</li>
+        <li><div class="checkmark">✓</div>Tax efficiency at every step</li>
+        <li><div class="checkmark">✓</div>Disciplined, not reactive</li>
+        <li><div class="checkmark">✓</div>Low-cost, high-quality funds</li>
+        <li><div class="checkmark">✓</div>Diversified across asset classes</li>
+        <li><div class="checkmark">✓</div>Transparent reporting always</li>
+      </ul>
+      <a href="#" class="sidebar-btn outline">Download Investment Philosophy</a>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Sarah explained our portfolio in a way I'd never heard before. For the first time I actually understood what I owned and why."</blockquote>
+      <div class="testimonial-author"><strong>Thomas & Karen W.</strong>Greenfield clients since 2017</div>
+    </div>
+  </aside>
+</div>
+</div>
+
+<footer>© 2026 <span>Greenfield Wealth</span>. All rights reserved. &nbsp;·&nbsp; Securities offered through [Broker-Dealer]. &nbsp;·&nbsp; <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>
