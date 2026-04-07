@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tax Strategy – Greenfield Wealth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--green-deep:#1a4a2e;--green-mid:#2d6a4f;--green-light:#52b788;--green-pale:#d8f3dc;--green-soft:#f0faf2;--white:#ffffff;--off-white:#f8fcf9;--gray:#6b7280;--gray-light:#e5e7eb;--text-dark:#111827;}
+  *{margin:0;padding:0;box-sizing:border-box;}body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text-dark);overflow-x:hidden;}
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--gray-light);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--green-deep);letter-spacing:0.03em;}.logo span{color:var(--green-light);}
+  .nav-links{display:flex;gap:36px;list-style:none;}.nav-links a{text-decoration:none;font-size:0.875rem;font-weight:500;color:var(--gray);transition:color .2s;}.nav-links a:hover,.nav-links a.active{color:var(--green-deep);}
+  .nav-cta{background:var(--green-deep);color:var(--white)!important;padding:9px 22px;border-radius:6px;font-weight:500!important;}
+  .breadcrumb{background:var(--white);border-bottom:1px solid var(--gray-light);padding:12px 48px;}.breadcrumb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--gray);}.breadcrumb a{color:var(--green-mid);text-decoration:none;}
+  .page-hero{background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-mid) 100%);padding:80px 48px 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;background:rgba(255,255,255,0.04);border-radius:50%;}
+  .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;position:relative;z-index:1;}
+  .hero-eyebrow{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.85);padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+  .hero-left h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;color:var(--white);line-height:1.12;margin-bottom:18px;}.hero-left h1 em{font-style:italic;font-weight:600;color:#a8e6be;}
+  .hero-left p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.78);max-width:520px;margin-bottom:32px;}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-white{background:var(--white);color:var(--green-deep);padding:13px 28px;border-radius:7px;font-weight:500;font-size:0.9rem;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform .15s;display:inline-block;}.btn-white:hover{transform:translateY(-2px);}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,0.45);color:var(--white);padding:13px 28px;border-radius:7px;font-size:0.9rem;text-decoration:none;display:inline-block;transition:background .15s;}.btn-ghost:hover{background:rgba(255,255,255,0.1);}
+  .hero-stat-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:32px 28px;color:var(--white);}
+  .hero-stat-card h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:rgba(255,255,255,0.7);margin-bottom:20px;}
+  .stat-row{display:flex;flex-direction:column;gap:16px;}.stat-item{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.1);}.stat-item:last-child{border-bottom:none;padding-bottom:0;}.stat-label-sm{font-size:0.8rem;color:rgba(255,255,255,0.65);}.stat-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#a8e6be;}
+  .page-body{max-width:1200px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;}
+  .main-content{min-width:0;}.sidebar{position:sticky;top:88px;}
+  .section-tag{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-light);font-weight:500;margin-bottom:10px;display:block;}
+  h2.content-h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--green-deep);line-height:1.2;margin-bottom:16px;}
+  .lead{font-size:1rem;line-height:1.8;color:var(--gray);margin-bottom:36px;}
+  .help-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px;}.help-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:24px 22px;transition:transform .2s,box-shadow .2s,border-color .2s;}.help-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(45,106,79,0.09);border-color:var(--green-pale);}.help-icon{font-size:1.5rem;margin-bottom:12px;}.help-card h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--green-deep);margin-bottom:7px;}.help-card p{font-size:0.825rem;color:var(--gray);line-height:1.65;}
+  .approach-steps{display:flex;flex-direction:column;gap:0;margin-bottom:56px;}.approach-step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--gray-light);}.approach-step:last-child{border-bottom:none;}.step-circle{width:44px;height:44px;border-radius:50%;background:var(--green-soft);border:2px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-mid);flex-shrink:0;margin-top:2px;}.approach-step h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-deep);margin-bottom:7px;}.approach-step p{font-size:0.858rem;color:var(--gray);line-height:1.7;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:56px;}.who-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:22px 18px;text-align:center;transition:border-color .2s,box-shadow .2s;}.who-card:hover{border-color:var(--green-pale);box-shadow:0 8px 24px rgba(45,106,79,0.08);}.who-icon{font-size:1.8rem;margin-bottom:10px;}.who-card h5{font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:600;color:var(--green-deep);margin-bottom:6px;}.who-card p{font-size:0.78rem;color:var(--gray);line-height:1.6;}
+  .faq-list{display:flex;flex-direction:column;gap:0;margin-bottom:56px;}.faq-item{border-bottom:1px solid var(--gray-light);}.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:16px;}.faq-q span{font-size:0.93rem;font-weight:500;color:var(--text-dark);line-height:1.4;}.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--green-mid);flex-shrink:0;transition:background .15s,transform .2s;}.faq-item.open .faq-toggle{background:var(--green-deep);color:var(--white);transform:rotate(45deg);}.faq-a{display:none;padding:0 0 20px;font-size:0.858rem;color:var(--gray);line-height:1.75;}.faq-item.open .faq-a{display:block;}
+  .related-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}.related-card{background:var(--white);border-radius:12px;border:1px solid var(--gray-light);padding:22px 20px;transition:transform .2s,box-shadow .2s;}.related-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(45,106,79,0.09);border-color:var(--green-pale);}.related-icon{font-size:1.3rem;margin-bottom:10px;}.related-card h5{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--green-deep);margin-bottom:6px;}.related-card p{font-size:0.78rem;color:var(--gray);line-height:1.6;margin-bottom:12px;}.related-link{font-size:0.78rem;font-weight:500;color:var(--green-mid);text-decoration:none;}
+  .sidebar-card{background:var(--white);border-radius:14px;border:1px solid var(--gray-light);padding:28px 24px;margin-bottom:18px;}.sidebar-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--green-deep);margin-bottom:10px;}.sidebar-card p{font-size:0.835rem;color:var(--gray);line-height:1.7;margin-bottom:18px;}.sidebar-btn{display:block;text-align:center;text-decoration:none;background:var(--green-deep);color:var(--white);padding:12px 20px;border-radius:8px;font-size:0.875rem;font-weight:500;transition:background .2s;width:100%;}.sidebar-btn:hover{background:var(--green-mid);}.sidebar-btn.outline{background:transparent;color:var(--green-mid);border:1.5px solid var(--green-light);margin-top:10px;}.sidebar-btn.outline:hover{background:var(--green-soft);}
+  .advisor-mini{display:flex;align-items:center;gap:14px;margin-bottom:18px;}.advisor-mini-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--green-deep),var(--green-mid));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);flex-shrink:0;}.advisor-mini-info strong{display:block;font-size:0.875rem;color:var(--text-dark);font-weight:500;}.advisor-mini-info span{font-size:0.78rem;color:var(--green-light);}
+  .checklist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}.checklist li{display:flex;align-items:flex-start;gap:10px;font-size:0.835rem;color:var(--gray);line-height:1.5;}.checkmark{width:18px;height:18px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--green-mid);flex-shrink:0;margin-top:1px;}
+  .testimonial-card{background:linear-gradient(135deg,var(--green-deep),var(--green-mid));border-radius:14px;padding:28px 24px;color:var(--white);}.testimonial-card blockquote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,0.9);margin-bottom:16px;}.testimonial-author{font-size:0.78rem;color:rgba(255,255,255,0.6);}.testimonial-author strong{color:rgba(255,255,255,0.9);display:block;margin-bottom:2px;}.stars{color:#a8e6be;font-size:0.7rem;margin-bottom:14px;letter-spacing:2px;}
+  footer{background:var(--green-deep);color:rgba(255,255,255,0.6);text-align:center;padding:28px 48px;font-size:0.8rem;}footer span{color:var(--green-light);}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}.hero-inner>*{animation:fadeUp .55s ease both;}.hero-inner>*:nth-child(1){animation-delay:.05s;}.hero-inner>*:nth-child(2){animation-delay:.2s;}
+  @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;}.hero-stat-card{display:none;}.page-body{grid-template-columns:1fr;}.sidebar{position:static;}}
+  @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.page-hero,.page-body{padding-left:24px;padding-right:24px;}.help-grid,.who-grid,.related-grid{grid-template-columns:1fr;}.breadcrumb{padding:12px 24px;}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Greenfield <span>Wealth</span></div><ul class="nav-links"><li><a href="#">Home</a></li><li><a href="#" class="active">Services</a></li><li><a href="#">Our Team</a></li><li><a href="#">Insights</a></li><li><a href="#" class="nav-cta">Get Started</a></li></ul></nav>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="#">Home</a><span>›</span><a href="#">Services</a><span>›</span><span>Tax Strategy</span></div></div>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">💡 Tax Strategy</div>
+      <h1>Keep more of<br><em>what you've earned</em></h1>
+      <p>Proactive, year-round tax planning that goes far beyond filing a return — coordinated with your investments and financial plan to minimize your lifetime tax burden.</p>
+      <div class="hero-btns"><a href="#" class="btn-white">Schedule a Free Consultation</a><a href="#" class="btn-ghost">Download Tax Planning Guide</a></div>
+    </div>
+    <div class="hero-stat-card">
+      <h4>The impact of proactive planning</h4>
+      <div class="stat-row">
+        <div class="stat-item"><span class="stat-label-sm">Avg. first-year tax savings</span><span class="stat-val">$14K+</span></div>
+        <div class="stat-item"><span class="stat-label-sm">Clients with Roth conversions</span><span class="stat-val">63%</span></div>
+        <div class="stat-item"><span class="stat-label-sm">Avg. tax-loss harvesting benefit</span><span class="stat-val">$8K/yr</span></div>
+        <div class="stat-item"><span class="stat-label-sm">CPA coordination rate</span><span class="stat-val">100%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--off-white);">
+<div class="page-body">
+  <div class="main-content">
+    <span class="section-tag">What We Do</span>
+    <h2 class="content-h2">Tax planning, not just tax preparation</h2>
+    <p class="lead">Most people only think about taxes in April. We think about your taxes every month — looking for opportunities to reduce what you owe today and in the future.</p>
+    <div class="help-grid">
+      <div class="help-card"><div class="help-icon">🔄</div><h4>Roth Conversion Planning</h4><p>Converting pre-tax retirement assets to Roth in low-income years can dramatically reduce your lifetime tax bill. We model the optimal conversion amount each year.</p></div>
+      <div class="help-card"><div class="help-icon">📉</div><h4>Tax-Loss Harvesting</h4><p>We systematically identify losses in your taxable accounts that can offset capital gains — reducing your annual tax bill without meaningfully changing your investment strategy.</p></div>
+      <div class="help-card"><div class="help-icon">🏦</div><h4>Account Location Strategy</h4><p>Placing the right investments in the right account types (taxable, traditional, Roth) can significantly improve your after-tax returns over time.</p></div>
+      <div class="help-card"><div class="help-icon">📊</div><h4>Capital Gains Management</h4><p>We time the realization of capital gains and losses, coordinate with charitable giving, and use other strategies to minimize taxable events each year.</p></div>
+      <div class="help-card"><div class="help-icon">🤝</div><h4>CPA Coordination</h4><p>We work directly with your tax preparer throughout the year — not just at year-end — to ensure your investment strategy and tax strategy are always aligned.</p></div>
+      <div class="help-card"><div class="help-icon">🏢</div><h4>Business Owner Tax Planning</h4><p>Entity structure, deferred compensation, retirement plan contributions, and exit planning — tax strategy for business owners requires a specialized approach.</p></div>
+    </div>
+
+    <span class="section-tag">Our Approach</span>
+    <h2 class="content-h2">Year-round, not just year-end</h2>
+    <p class="lead">Reactive tax planning leaves money on the table. We build tax strategy into every financial decision we make on your behalf throughout the year.</p>
+    <div class="approach-steps">
+      <div class="approach-step"><div class="step-circle">1</div><div><h4>Tax Situation Analysis</h4><p>We review your recent tax returns to understand your current bracket, income sources, deductions, and year-over-year trends — identifying immediate opportunities.</p></div></div>
+      <div class="approach-step"><div class="step-circle">2</div><div><h4>Multi-Year Tax Projection</h4><p>We model your tax picture 5–10 years out, accounting for retirement, Social Security, RMDs, and estate — so we can make decisions today that benefit you for decades.</p></div></div>
+      <div class="approach-step"><div class="step-circle">3</div><div><h4>Strategy Implementation</h4><p>We execute tax-saving strategies throughout the year — Roth conversions, loss harvesting, asset location adjustments, and charitable giving coordination.</p></div></div>
+      <div class="approach-step"><div class="step-circle">4</div><div><h4>Year-End Tax Review</h4><p>Each fall we run a tax projection for the current year and make any final adjustments — additional conversions, harvesting opportunities, or charitable contributions — before December 31.</p></div></div>
+      <div class="approach-step"><div class="step-circle">5</div><div><h4>CPA Handoff & Filing Support</h4><p>We provide your CPA with a detailed summary of all investment activity, tax elections made, and planning notes to ensure your return is filed accurately and efficiently.</p></div></div>
+    </div>
+
+    <span class="section-tag">Who We Work With</span>
+    <h2 class="content-h2">Who benefits most from tax strategy</h2>
+    <p class="lead" style="margin-bottom:24px;">Anyone paying more than $15,000 per year in taxes likely has meaningful opportunities to reduce that burden with proper planning.</p>
+    <div class="who-grid">
+      <div class="who-card"><div class="who-icon">💰</div><h5>High Earners</h5><p>Professionals in the top brackets with significant W-2 income, bonuses, and equity compensation who need sophisticated strategies year-round.</p></div>
+      <div class="who-card"><div class="who-icon">🏢</div><h5>Business Owners</h5><p>Self-employed individuals and business owners with unique opportunities around entity structure, retirement plans, and exit planning.</p></div>
+      <div class="who-card"><div class="who-icon">🌅</div><h5>Pre-Retirees</h5><p>Those in the 5–10 years before retirement with a golden window for Roth conversions, bracket management, and distribution planning.</p></div>
+    </div>
+
+    <span class="section-tag">Common Questions</span>
+    <h2 class="content-h2">Frequently asked questions</h2>
+    <p class="lead">Answers to the tax questions we hear most often.</p>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Are you a CPA? Do you prepare tax returns?</span><div class="faq-toggle">+</div></div><div class="faq-a">We are financial advisors who specialize in tax strategy and planning — not tax preparers. We work alongside your CPA (or refer you to one) to ensure your investment and financial decisions are made with a clear view of their tax consequences. Think of us as the strategic layer above the tax return.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What's the difference between tax planning and tax preparation?</span><div class="faq-toggle">+</div></div><div class="faq-a">Tax preparation is reporting what happened last year. Tax planning is making decisions throughout the year to change what will happen next year. Preparation looks backward; planning looks forward. Most of the value — and most of the savings — comes from planning, not preparation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Should I do a Roth conversion?</span><div class="faq-toggle">+</div></div><div class="faq-a">For many clients in their 50s and early 60s — after their peak earning years but before Social Security and RMDs begin — strategic Roth conversions can save significant taxes over a lifetime. The right answer depends on your current bracket, projected future income, and estate goals. We model this individually for every client.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How much can tax planning realistically save me?</span><div class="faq-toggle">+</div></div><div class="faq-a">It varies widely depending on your income level, account types, and situation. For clients with $1–5M in assets, proactive tax planning often saves $10,000–$30,000 per year when you account for Roth conversions, loss harvesting, asset location, and charitable strategies. For high earners or business owners, the savings can be substantially higher.</div></div>
+    </div>
+
+    <span class="section-tag">Related Services</span>
+    <h2 class="content-h2">Often paired together</h2>
+    <div class="related-grid">
+      <div class="related-card"><div class="related-icon">📈</div><h5>Investment Management</h5><p>Tax-efficient portfolio construction and ongoing tax-loss harvesting throughout the year.</p><a href="#" class="related-link">Learn more →</a></div>
+      <div class="related-card"><div class="related-icon">🏖️</div><h5>Retirement Planning</h5><p>Distribution strategy and Roth conversion planning in the years before and after retirement.</p><a href="#" class="related-link">Learn more →</a></div>
+      <div class="related-card"><div class="related-icon">📋</div><h5>Estate Planning</h5><p>Minimize transfer taxes and structure your estate for the most tax-efficient legacy possible.</p><a href="#" class="related-link">Learn more →</a></div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h4>Talk to a Tax Strategist</h4>
+      <div class="advisor-mini"><div class="advisor-mini-avatar">MC</div><div class="advisor-mini-info"><strong>Michael Chen, CPA</strong><span>Tax Strategy Specialist</span></div></div>
+      <p>Schedule a complimentary tax strategy review with Michael to identify your biggest savings opportunities.</p>
+      <a href="#" class="sidebar-btn">Book a Free Tax Review</a>
+      <a href="#" class="sidebar-btn outline">Send a Message</a>
+    </div>
+    <div class="sidebar-card">
+      <h4>Year-round tax planning calendar</h4>
+      <ul class="checklist">
+        <li><div class="checkmark">✓</div>Q1: Tax return review & planning</li>
+        <li><div class="checkmark">✓</div>Q2: Mid-year bracket check</li>
+        <li><div class="checkmark">✓</div>Q3: Roth conversion analysis</li>
+        <li><div class="checkmark">✓</div>Q3: Tax-loss harvesting sweep</li>
+        <li><div class="checkmark">✓</div>Q4: Year-end projection & actions</li>
+        <li><div class="checkmark">✓</div>Q4: Charitable giving coordination</li>
+        <li><div class="checkmark">✓</div>Year-round: CPA coordination</li>
+      </ul>
+      <a href="#" class="sidebar-btn outline">Download Tax Planning Calendar</a>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Michael found over $22,000 in tax savings in our first year working together. We had no idea we were leaving that much on the table."</blockquote>
+      <div class="testimonial-author"><strong>Daniel & Susan F.</strong>Greenfield clients since 2021</div>
+    </div>
+  </aside>
+</div>
+</div>
+
+<footer>© 2026 <span>Greenfield Wealth</span>. All rights reserved. &nbsp;·&nbsp; Securities offered through [Broker-Dealer]. &nbsp;·&nbsp; <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>
